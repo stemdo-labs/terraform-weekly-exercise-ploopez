@@ -14,7 +14,7 @@ Adicionalmente se debe crear un segundo repositorio de GitHub que disponga de un
 
 - Se debe ejecutar un plan de terraform cada vez que se realice un pull request a la rama principal del repositorio. 
 - [**OPCIONAL**]El resultado del plan debe ser publicado como comentario en el pull request.
-- Se debe ejecutar un apply de terraform cada vez que se realice un merge y/ó push a la rama principal del repositorio.
+- Se debe ejecutar un apply de terraform cada vez que se realice un merge a la rama principal del repositorio(Pull request closed).
 - [**OPCIONAL**]Se debe disponer de la opción de ejecutar plan/apply/destroy de terraform de forma manual para poder ejecutarlo en cualquier momento en caso de necesidad.
 
 Un ejemplo de uso del módulo desarrollado debe ser incluido en el repositorio de GitHub que contiene el workflow de GitHub Actions y debe ser desplegado en Azure utilizando para ello el Service Principal de Microsoft Azure que se le haya facilitado.
