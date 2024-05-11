@@ -14,9 +14,7 @@ terraform {
     # } 
 }  
 
-provider "azurerm" {   
-    features {} 
-}
+
 
 module "terraform_azure_workload" {   
     source = "github.com/stemdo-labs/terraform-exercises-ploopez/soluciones/modulo-weekly-exercise" 
