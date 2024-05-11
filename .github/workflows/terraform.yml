@@ -42,4 +42,3 @@ jobs:
         tf_actions_version: ${{ env.TF_VERSION }}
         tf_actions_subcommand: 'apply'
         tf_actions_working_dir: "./soluciones/workload"
-        tf_actions_auto_approve: true
