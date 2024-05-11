@@ -25,14 +25,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Install Azure CLI
+    - name: Install and Run Azure CLI script
       uses: azure/CLI@v1
       with:
         azcliversion: 2.0.72
-    
-    - name: Run Azure CLI script
-      uses: azure/CLI@v1
-      with:
         inlineScript: |
           az --version
 
