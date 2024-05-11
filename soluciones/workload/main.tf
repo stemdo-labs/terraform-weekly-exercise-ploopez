@@ -14,6 +14,9 @@ terraform {
     # } 
 }  
 
+provider "azurerm" {
+  features {}
+}
 
 
 module "terraform_azure_workload" {   
