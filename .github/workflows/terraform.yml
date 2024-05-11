@@ -30,19 +30,23 @@ jobs:
         curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
     - name: 'Terraform Init'
-      uses: dflook/terraform-github-actions@v1
+      uses: hashicorp/terraform-github-actions@master
       with:
-        path: "./soluciones/workload"
+        tf_actions_version: ${{ env.TF_VERSION }}
+        tf_actions_subcommand: 'init'
+        tf_actions_working_dir: "./soluciones/workload"
 
     - name: 'Terraform Plan'
-      uses: dflook/terraform-github-actions@v1
+      uses: hashicorp/terraform-github-actions@master
       with:
-        path: "./soluciones/workload"
-        subcommand: 'plan'
+        tf_actions_version: ${{ env.TF_VERSION }}
+        tf_actions_subcommand: 'plan'
+        tf_actions_working_dir: "./soluciones/workload"
 
     - name: 'Terraform Apply'
-      uses: dflook/terraform-github-actions@v1
+      uses: hashicorp/terraform-github-actions@master
       with:
-        path: "./soluciones/workload"
-        subcommand: 'apply'
-        auto_approve: true
+        tf_actions_version: ${{ env.TF_VERSION }}
+        tf_actions_subcommand: 'apply'
+        tf_actions_working_dir: "./soluciones/workload"
+        tf_actions_auto_approve: true
