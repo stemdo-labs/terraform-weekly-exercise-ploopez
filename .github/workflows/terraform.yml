@@ -8,10 +8,10 @@ jobs:
   terraform:
     name: 'Terraform'
     env:
-      AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-      AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-      AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-      AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      AZURE_CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      AZURE_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+      AZURE_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
+      AZURE_TENANT_ID: ${{ secrets.TENANT_ID }}
       TF_VERSION: 1.5.7
     runs-on: ubuntu-latest
     environment: production
@@ -24,26 +24,25 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v4
-         
+
+    - name: Install Azure CLI
+      run: |
+        curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
     - name: 'Terraform Init'
-      uses: hashicorp/terraform-github-actions@master
+      uses: dflook/terraform-github-actions@v1
       with:
-        tf_actions_version: ${{ env.TF_VERSION }}
-        tf_actions_subcommand: 'init'
-        tf_actions_working_dir: "./soluciones/workload"
+        path: "./soluciones/workload"
 
     - name: 'Terraform Plan'
-      uses: hashicorp/terraform-github-actions@master
+      uses: dflook/terraform-github-actions@v1
       with:
-        tf_actions_version: ${{ env.TF_VERSION }}
-        tf_actions_subcommand: 'plan'
-        tf_actions_working_dir: "./soluciones/workload"
+        path: "./soluciones/workload"
+        subcommand: 'plan'
 
     - name: 'Terraform Apply'
-      uses: hashicorp/terraform-github-actions@master
+      uses: dflook/terraform-github-actions@v1
       with:
-        tf_actions_version: ${{ env.TF_VERSION }}
-        tf_actions_subcommand: 'apply'
-        tf_actions_working_dir: "./soluciones/workload"
-        tf_actions_auto_approve: true
-    
+        path: "./soluciones/workload"
+        subcommand: 'apply'
+        auto_approve: true
