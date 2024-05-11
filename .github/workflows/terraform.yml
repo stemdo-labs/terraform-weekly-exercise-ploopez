@@ -31,6 +31,9 @@ jobs:
         azcliversion: 2.0.72
         inlineScript: |
           az --version
+          
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
 
     - name: 'Terraform Init'
       uses: hashicorp/terraform-github-actions@master
