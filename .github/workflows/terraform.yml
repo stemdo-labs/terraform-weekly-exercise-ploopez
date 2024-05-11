@@ -25,6 +25,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
+    - uses: hashicorp/setup-terraform@v3
+
     - name: 'Terraform Init'
       uses: hashicorp/terraform-github-actions@master
       with:
@@ -38,3 +40,4 @@ jobs:
         tf_actions_version: ${{ env.TF_VERSION }}
         tf_actions_subcommand: 'apply'
         tf_actions_working_dir: "./soluciones/workload"
+        tf_actions_auto_approve: true
