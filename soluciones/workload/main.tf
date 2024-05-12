@@ -35,9 +35,9 @@ module "terraform_azure_workload" {
 }
 
 
-resource "azurerm_storage_container" "container" {
-  name                  = "tfstate"
-  storage_account_name  = var.storage_account_name
-  container_access_type = "private"
-}
+#resource "azurerm_storage_container" "container" {
+#  name                  = "tfstate"
+#  storage_account_name  = var.storage_account_name
+#  container_access_type = "private"
+#}
 
