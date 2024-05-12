@@ -7,12 +7,12 @@ terraform {
 
         }   
     }   
-    backend "azurerm" {       
-         resource_group_name  = "rg1plopez-lab01"       
-         storage_account_name = "sta1plopez"       
-         container_name       = "tfstate"       
-         key                  = "terraform.tfstate"   
-    } 
+    #backend "azurerm" {       
+    #     resource_group_name  = "rg1plopez-lab01"       
+    #     storage_account_name = "sta1plopez"       
+    #     container_name       = "tfstate"       
+    #     key                  = "terraform.tfstate"   
+    #} 
 }  
 
 provider "azurerm" {
