@@ -12,8 +12,6 @@ provider "azurerm" {
   features {}
 }
 
-
-data "azurerm_client_config" "current" {}
 module "terraform_azure_workload" {   
     source = "github.com/stemdo-labs/terraform-exercises-ploopez/soluciones/modulo-weekly-exercise" 
     resource_group_name = var.resource_group_name     
