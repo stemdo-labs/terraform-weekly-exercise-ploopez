@@ -25,9 +25,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Setup Terraform
-      uses: hashicorp/terraform-github-actions@master
-
     - name: 'Terraform Init'
       uses: hashicorp/terraform-github-actions@master
       with:
