@@ -45,6 +45,3 @@ jobs:
       uses: hashicorp/terraform-github-actions@master
       with:
         tf_actions_version: ${{ env.TF_VERSION }}
-        tf_actions_subcommand: 'apply'
-        tf_actions_working_dir: "./soluciones/workload"
-
