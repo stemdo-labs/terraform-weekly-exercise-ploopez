@@ -28,12 +28,19 @@ jobs:
     - name: Install Azure CLI
       run: |
         curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+      # Verificar la instalación de Azure CLI
+    - name: Verify Azure CLI installation
+      run: |
+        echo "Checking Azure CLI installation..."
+        which az
+        az --version
         
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v2
 
     - name: 'Terraform Init'
+      if: success()  # Solo ejecutar si la instalación de Azure CLI fue exitosa
       uses: hashicorp/terraform-github-actions@master
       with:
         tf_actions_version: ${{ env.TF_VERSION }}
@@ -45,3 +52,5 @@ jobs:
       uses: hashicorp/terraform-github-actions@master
       with:
         tf_actions_version: ${{ env.TF_VERSION }}
+        tf_actions_subcommand: 'apply'
+        tf_actions_working_dir: "./soluciones/workload"
